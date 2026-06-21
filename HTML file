@@ -143,10 +143,10 @@ label{
 
     <div class="close-btn">&times;</div>
 
-    <h1>Write text testimonial to</h1>
+    <h1>Drop a review</h1>
 
     <!-- Replace with your logo -->
-    <img src="logo.png" class="logo" alt="Logo">
+    <img src="logo.png.jpg" class="logo" alt="Logo">
 
     <h2>Question</h2>
     <div class="line"></div>
