@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testimonial Collection Form</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#2f2f2f;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
+
+.form-container{
+    width:100%;
+    max-width:420px;
+    background:#fff;
+    border-radius:20px;
+    padding:25px;
+    position:relative;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+.close-btn{
+    position:absolute;
+    top:15px;
+    right:20px;
+    font-size:28px;
+    color:#999;
+    cursor:pointer;
+}
+
+h1{
+    font-size:20px;
+    margin-bottom:20px;
+    font-weight:bold;
+}
+
+.logo{
+    width:70px;
+    height:70px;
+    border-radius:12px;
+    margin-bottom:20px;
+    object-fit:cover;
+}
+
+h2{
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+.line{
+    width:50px;
+    height:4px;
+    background:#4c5cff;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+.question{
+    color:#777;
+    margin-bottom:20px;
+    line-height:1.5;
+    font-size:15px;
+}
+
+.rating-box{
+    margin-bottom:20px;
+}
+
+.star{
+    font-size:35px;
+    color:#ccc;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.star:hover{
+    transform:scale(1.1);
+}
+
+textarea,
+input[type="text"],
+input[type="email"],
+input[type="date"]{
+    width:100%;
+    padding:15px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    margin-bottom:20px;
+    font-size:16px;
+    outline:none;
+}
+
+textarea{
+    height:150px;
+    resize:none;
+}
+
+label{
+    display:block;
+    margin-bottom:8px;
+    font-size:15px;
+    font-weight:500;
+}
+
+.cta-btn{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#000,#444);
+    color:#fff;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.cta-btn:hover{
+    transform:scale(1.02);
+}
+
+.cta-btn:active{
+    transform:scale(0.98);
+}
+</style>
+</head>
+<body>
+
+<div class="form-container">
+
+    <div class="close-btn">&times;</div>
+
+    <h1>Write text testimonial to</h1>
+
+    <!-- Replace with your logo -->
+    <img src="logo.png" class="logo" alt="Logo">
+
+    <h2>Question</h2>
+    <div class="line"></div>
+
+    <p class="question">• How did our staff treat you during your session?</p>
+
+    <!-- Formspree Form -->
+    <form action="https://formspree.io/f/xwvdedvj" method="POST">
+
+        <!-- Star Rating -->
+        <div class="rating-box">
+            <span class="star" onclick="rate(1)">★</span>
+            <span class="star" onclick="rate(2)">★</span>
+            <span class="star" onclick="rate(3)">★</span>
+            <span class="star" onclick="rate(4)">★</span>
+            <span class="star" onclick="rate(5)">★</span>
+            <input type="hidden" id="rating" name="rating" required>
+        </div>
+
+        <!-- Testimonial -->
+        <textarea name="message" placeholder="Write your testimonial..." required></textarea>
+
+        <!-- Date of Visit -->
+        <label>Date of Visit</label>
+        <input type="date" name="date_of_visit" required>
+
+        <!-- Name -->
+        <label>Your Name *</label>
+        <input type="text" name="name" required>
+
+        <!-- Email -->
+        <label>Your Email *</label>
+        <input type="email" name="email" required>
+
+        <!-- CTA -->
+        <button type="submit" class="cta-btn">Send Review</button>
+
+    </form>
+
+</div>
+
+<script>
+function rate(stars){
+    let allStars = document.querySelectorAll(".star");
+    document.getElementById("rating").value = stars;
+
+    allStars.forEach((star,index)=>{
+        if(index < stars){
+            star.style.color = "gold";
+        } else {
+            star.style.color = "#ccc";
+        }
+    });
+}
+</script>
+
+</body>
+</html>
